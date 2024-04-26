@@ -6,15 +6,15 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 10:04:16 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/04/21 11:48:38 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/04/24 10:19:57 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../mandatory/push_swap.h"
 
 int	ft_isdigit(int c)
 {
 	if (c >= 48 && c <= 57)
-		return (1);
-	return (0);
+		return (0);
+	return (1);
 }

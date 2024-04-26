@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 11:12:13 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/04/21 12:01:20 by fbazaz           ###   ########.fr       */
+/*   Created: 2023/11/19 17:36:58 by fbazaz            #+#    #+#             */
+/*   Updated: 2024/04/25 10:24:20 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../mandatory/push_swap.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+t_stack	*ft_lstnew(int *content)
 {
-	size_t	i;
+	t_stack	*node;
 
-	i = 0;
-	while ((s1[i] || s2[i]))
-	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
-	}
-	return (0);
+	node = malloc(sizeof(t_stack));
+	if (!node)
+		return (NULL);
+	node->data = *content;
+	node->next = NULL;
+	return (node);
 }

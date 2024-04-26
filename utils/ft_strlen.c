@@ -6,11 +6,11 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 10:43:22 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/04/21 11:25:14 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/04/24 10:20:17 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../mandatory/push_swap.h"
 
 size_t	ft_strlen(const char *s)
 {

@@ -6,11 +6,11 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:08:15 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/04/21 11:23:04 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/04/24 10:20:14 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../mandatory/push_swap.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 09:35:27 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/04/21 11:24:32 by fbazaz           ###   ########.fr       */
+/*   Created: 2023/11/19 18:31:07 by fbazaz            #+#    #+#             */
+/*   Updated: 2024/04/25 14:56:21 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../mandatory/push_swap.h"
 
-char	*ft_strdup(const char *src)
+int	ft_lstsize(t_stack *lst)
 {
-	int		i;
-	size_t	len;
-	char	*copy;
+	int	counter;
 
-	len = ft_strlen(src);
-	copy = malloc(sizeof(char) * (len + 1));
-	if (copy == NULL)
-		return (NULL);
-	i = 0;
-	while (src[i])
+	counter = 0;
+	while (lst != NULL)
 	{
-		copy[i] = src[i];
-		i++;
+		counter++;
+		lst = lst->next;
 	}
-	copy[i] = '\0';
-	return (copy);
+	//printf("conter %i\n", counter);
+	return (counter);
 }
