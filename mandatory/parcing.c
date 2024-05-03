@@ -6,151 +6,84 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 11:01:45 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/04/26 09:43:27 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/05/03 13:29:47 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    ft_fill_arr(t_stack **head, t_ps *ps)
+void	ft_fill_arr(t_stack **head, t_ps *ps)
 {
-    int i;
+	int		i;
+	t_stack	*tmp;
 
-    i = 0;
-    while (i < ps->size)
-    {
-        ps->arr[i] = (*head)->data;
-        head = &(*head)->next;
-        i++;
-    }
+	i = 0;
+	tmp = *head;
+	while (i < ps->size)
+	{
+		ps->arr[i] = (*head)->data;
+		*head = (*head)->next;
+		i++;
+	}
+	*head = tmp;
 }
 
-void    check_args(t_ps *ps, char **av, t_stack **head)
+void	swap_int(int *a, int *b)
 {
-    int i;
-    int j;
-    int num;
+	int	tmp;
 
-    i = 1;
-    while (av[i])
-    {
-            printf("av[1] %s\n", av[1]);
-        ps->args = ft_split(av[i], ' ');
-            printf("split %s\n", ps->args[0]);
-        if (!ps->args[0])
-            ft_print_error();
-        j = 0;
-        while (ps->args[j])
-        {
-            num = ft_atoi(ps->args[j]);
-            ft_lstadd_back(head, ft_lstnew(&num));
-            j++;
-        }
-        i++;
-    }
-    ps->size = ft_lstsize(*head);
-    ps->arr = malloc(sizeof(int) * ps->size);
-    ft_fill_arr(head, ps);
-    ft_check_dup(ps);
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* #include "push_swap.h"
-
-void check_digit(char **str)
+void	ft_sort_array(t_ps *ps)
 {
-    int i;
-    int j;
+	int	i;
+	int	j;
+	int	min;
 
-    i = 0;
-    while (str[i])
-    {
-        j = 0;
-        while (str[i][j])
-        {
-            if ((str[i][j] < '0' || str[i][j] > '9') && str[i][j] != '-' && str[i][j] != '+')
-                ft_print_error();
-            j++;
-        }
-        i++;
-    }
+	i = 0;
+	while (i < ps->size - 1)
+	{
+		min = i;
+		j = i + 1;
+		while (j < ps->size)
+		{
+			if (ps->arr[j] < ps->arr[min])
+				min = j;
+			j++;
+		}
+		swap_int(&ps->arr[min], &ps->arr[i]);
+		i++;
+	}
 }
 
-
-void    join_args(t_ps *ps, char **av, int ac)
+void	check_args(t_ps *ps, char **av, t_stack **head)
 {
-    int i;
-    int j;
-    (void)ac;
+	int	i;
+	int	j;
+	int	num;
 
-    i = 1;
-    while (av[i])
-    {
-        j = 0;
-        if (!av[i][0])
-            ft_print_error();
-        ps->tmp = ft_strjoin(ps->tmp, (ft_strjoin(av[i], " ")));
-        i++;
-    }
-    ps->args = ft_split(ps->tmp, ' ');
-    printf("%s\n", ps->args[0]);
-    printf("%s\n", ps->args[1]);
-    printf("%s\n", ps->args[2]);
-    printf("%s\n", ps->args[3]);
-    printf("%s\n", ps->args[4]);
-    free(ps->tmp);
-    while (ps->args[ps->size])
-        ps->size++;
-    i = 0;
-    while (i < ps->size)
-    {
-        if (ps->args[i] == NULL)
-            ft_print_error();
-        i++;
-    }
-    check_sign(ps->args);
-    check_digit(ps->args);
-    i = 0;
-    ps->arr = malloc(sizeof(long) * (ps->size));
-    while (ps->args[i])
-    {
-        ps->arr[i] = ft_atoi(ps->args[i]);
-        i++;
-    }
+	i = 1;
+	while (av[i])
+	{
+		ps->args = ft_split(av[i], ' ');
+		if (!ps->args[0])
+			ft_print_error();
+		j = 0;
+		while (ps->args[j])
+		{
+			num = ft_atoi(ps->args[j]);
+			ft_lstadd_back(head, ft_lstnew(&num));
+			j++;
+		}
+		i++;
+	}
+	ps->size = ft_lstsize(*head);
+	ps->arr = malloc(sizeof(int) * ps->size);
+	ft_fill_arr(head, ps);
+	ft_check_dup(ps);
+	ft_sort_array(ps);
+	ft_check_if_sorted(ps, *head);
 }
-
-void    check_args(t_ps *ps)
-{
-    int i;
-
-    i = 0;
-    while (i < ps->size)
-    {
-        if (ft_repeat(ps, i, ps->arr[i]) == 1 || ps->arr[i] > INT_MAX || ps->arr[i] < INT_MIN)
-            ft_print_error();
-        i++;
-    }
-} */
