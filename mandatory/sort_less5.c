@@ -6,13 +6,13 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 20:17:07 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/05/03 13:27:15 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/05/05 11:33:53 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_check_if_sorted(t_ps *ps, t_stack *a)
+int	ft_check_if_sorted(t_ps *ps, t_stack *a)
 {
 	int	i;
 
@@ -20,11 +20,11 @@ void	ft_check_if_sorted(t_ps *ps, t_stack *a)
 	while (i < ps->size)
 	{
 		if (ps->arr[i] != a->data)
-			return ;
+			return (0);
 		i++;
 		a = a->next;
 	}
-	exit(0);
+	return (1);
 }
 
 void	sort_2(t_stack **s)

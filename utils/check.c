@@ -6,16 +6,26 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 11:53:50 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/04/26 20:50:45 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/05/05 16:51:46 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../mandatory/push_swap.h"
 
 int	ft_print_error(void)
 {
 	write(1, "Error\n", 6);
+	system("leaks push_swap");
 	exit(1);
+}
+
+void	swap_int(int *a, int *b)
+{
+	int	tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
 
 void	ft_check_dup(t_ps *ps)

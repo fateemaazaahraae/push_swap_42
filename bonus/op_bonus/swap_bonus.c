@@ -1,23 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   swap_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 10:43:22 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/04/24 10:20:17 by fbazaz           ###   ########.fr       */
+/*   Created: 2024/04/22 20:29:46 by fbazaz            #+#    #+#             */
+/*   Updated: 2024/05/05 16:10:01 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../mandatory/push_swap.h"
+#include "../push_swap_bonus.h"
 
-size_t	ft_strlen(const char *s)
+void	swap(t_stack **s)
 {
-	size_t	i;
+	t_stack	*tmp;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	if (!(*s)->next)
+		return ;
+	tmp = (*s)->next;
+	(*s)->next = tmp->next;
+	tmp->next = (*s);
+	(*s) = tmp;
+}
+
+void	sa(t_stack **s)
+{
+	if (!(*s))
+		return ;
+	swap(s);
+}
+
+void	sb(t_stack **s)
+{
+	if (!(*s))
+		return ;
+	swap(s);
+}
+
+void	ss(t_stack **a, t_stack **b)
+{
+	if (!(*a) || !(*b))
+		return ;
+	swap(a);
+	swap(b);
 }

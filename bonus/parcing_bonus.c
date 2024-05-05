@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parcing.c                                          :+:      :+:    :+:   */
+/*   parcing_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/21 11:01:45 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/05/05 16:53:37 by fbazaz           ###   ########.fr       */
+/*   Created: 2024/05/05 09:51:44 by fbazaz            #+#    #+#             */
+/*   Updated: 2024/05/05 17:13:50 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	ft_fill_arr(t_stack **head, t_ps *ps)
 {
@@ -28,7 +28,22 @@ void	ft_fill_arr(t_stack **head, t_ps *ps)
 	*head = tmp;
 }
 
-void	ft_sort_array(t_ps *ps, t_stack *head)
+int	ft_check_if_sorted(t_ps *ps, t_stack *a)
+{
+	int	i;
+
+	i = 0;
+	while (i < ps->size)
+	{
+		if (ps->arr[i] != a->data)
+			return (0);
+		i++;
+		a = a->next;
+	}
+	return (1);
+}
+
+void	sort_array(t_ps *ps)
 {
 	int	i;
 	int	j;
@@ -48,11 +63,9 @@ void	ft_sort_array(t_ps *ps, t_stack *head)
 		swap_int(&ps->arr[min], &ps->arr[i]);
 		i++;
 	}
-	if (ft_check_if_sorted(ps, head))
-		exit(0);
 }
 
-void	check_args(t_ps *ps, char **av, t_stack **head)
+void	ft_check_args(t_ps *ps, char **av, t_stack **head)
 {
 	int	i;
 	int	j;
@@ -78,5 +91,5 @@ void	check_args(t_ps *ps, char **av, t_stack **head)
 	ps->arr = malloc(sizeof(int) * ps->size);
 	ft_fill_arr(head, ps);
 	ft_check_dup(ps);
-	ft_sort_array(ps, *head);
+	sort_array(ps);
 }

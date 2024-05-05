@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   push_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 09:35:27 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/04/24 10:20:10 by fbazaz           ###   ########.fr       */
+/*   Created: 2024/04/22 20:36:55 by fbazaz            #+#    #+#             */
+/*   Updated: 2024/05/05 16:25:28 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../mandatory/push_swap.h"
+#include "../push_swap_bonus.h"
 
-char	*ft_strdup(const char *src)
+void	push(t_stack **a, t_stack **b)
 {
-	int		i;
-	size_t	len;
-	char	*copy;
+	t_stack	*tmp;
 
-	len = ft_strlen(src);
-	copy = malloc(sizeof(char) * (len + 1));
-	if (copy == NULL)
-		return (NULL);
-	i = 0;
-	while (src[i])
-	{
-		copy[i] = src[i];
-		i++;
-	}
-	copy[i] = '\0';
-	return (copy);
+	tmp = (*a)->next;
+	(*a)->next = *b;
+	*b = *a;
+	*a = tmp;
+}
+
+void	pa(t_stack **a, t_stack **b)
+{
+	if (!(*b))
+		return ;
+	push(b, a);
+}
+
+void	pb(t_stack **a, t_stack **b)
+{
+	if (!(*a))
+		return ;
+	push(a, b);
 }

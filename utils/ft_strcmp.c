@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 18:31:07 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/05/03 13:34:50 by fbazaz           ###   ########.fr       */
+/*   Created: 2024/05/05 11:52:03 by fbazaz            #+#    #+#             */
+/*   Updated: 2024/05/05 17:11:53 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/push_swap.h"
 
-int	ft_lstsize(t_stack *lst)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int	counter;
+	int	i;
 
-	counter = 0;
-	while (lst != NULL)
-	{
-		counter++;
-		lst = lst->next;
-	}
-	return (counter);
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return (s1[i] - s2[i]);
 }

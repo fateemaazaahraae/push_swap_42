@@ -6,11 +6,24 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:38:26 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/04/29 16:37:28 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/05/05 11:25:22 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/push_swap.h"
+
+void	ft_free(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+}
 
 int	find_bigger_num(t_stack **s)
 {

@@ -1,25 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   rotate_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 17:36:58 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/04/25 10:24:20 by fbazaz           ###   ########.fr       */
+/*   Created: 2024/04/22 20:37:17 by fbazaz            #+#    #+#             */
+/*   Updated: 2024/05/05 16:09:35 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../mandatory/push_swap.h"
+#include "../push_swap_bonus.h"
 
-t_stack	*ft_lstnew(int *content)
+void	rotate(t_stack **s)
 {
-	t_stack	*node;
+	t_stack	*last;
+	t_stack	*tmp;
 
-	node = malloc(sizeof(t_stack));
-	if (!node)
-		return (NULL);
-	node->data = *content;
-	node->next = NULL;
-	return (node);
+	last = ft_lstlast(*s);
+	tmp = *s;
+	last->next = *s;
+	(*s) = tmp->next;
+	(last->next)->next = NULL;
+}
+
+void	ra(t_stack **s)
+{
+	if (!(*s))
+		return ;
+	rotate(s);
+}
+
+void	rb(t_stack **s)
+{
+	if (!(*s))
+		return ;
+	rotate(s);
+}
+
+void	rr(t_stack **a, t_stack **b)
+{
+	if (!(*a) || !(*b))
+		return ;
+	rotate(a);
+	rotate(b);
 }

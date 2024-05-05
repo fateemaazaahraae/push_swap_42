@@ -1,50 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   reverse_rotate_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/22 20:29:46 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/05/05 16:46:56 by fbazaz           ###   ########.fr       */
+/*   Created: 2024/04/22 20:37:39 by fbazaz            #+#    #+#             */
+/*   Updated: 2024/05/05 16:10:35 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../push_swap_bonus.h"
 
-void	swap(t_stack **s)
+void	reverse_rotate(t_stack **s)
 {
+	t_stack	*last;
 	t_stack	*tmp;
+	int		size;
+	int		i;
 
-	if (!(*s)->next)
-		return ;
-	tmp = (*s)->next;
-	(*s)->next = tmp->next;
-	tmp->next = (*s);
-	(*s) = tmp;
+	i = 0;
+	size = ft_lstsize(*s);
+	last = ft_lstlast(*s);
+	tmp = *s;
+	while (i < size && s)
+	{
+		if (i == size - 2)
+			(*s)->next = NULL;
+		else
+			(*s) = (*s)->next;
+		i++;
+	}
+	*s = tmp;
+	last->next = *s;
+	*s = last;
 }
 
-void	sa(t_stack **s)
+void	rra(t_stack **s)
 {
 	if (!(*s))
 		return ;
-	swap(s);
-	write(1, "sa\n", 3);
+	reverse_rotate(s);
 }
 
-void	sb(t_stack **s)
+void	rrb(t_stack **s)
 {
 	if (!(*s))
 		return ;
-	swap(s);
-	write(1, "sb\n", 3);
+	reverse_rotate(s);
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b)
 {
 	if (!(*a) || !(*b))
 		return ;
-	swap(a);
-	swap(b);
-	write(1, "ss\n", 3);
+	reverse_rotate(a);
+	reverse_rotate(b);
 }

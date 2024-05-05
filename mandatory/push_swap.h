@@ -6,7 +6,7 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 10:22:28 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/05/03 13:35:43 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/05/05 11:52:59 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,11 @@ typedef struct stack
 
 void				check_args(t_ps *ps, char **av, t_stack **head);
 int					ft_print_error(void);
-void				check_digit(char *str);
-void				check_sign(char *str);
 void				ft_check_dup(t_ps *ps);
 int					find_bigger_num(t_stack **s);
 int					find_smaller_num(t_stack **s);
-void				ft_check_if_sorted(t_ps *ps, t_stack *a);
 void				top_min(t_stack **a, int pos, int i);
+int					ft_check_if_sorted(t_ps *ps, t_stack *a);
 void				sort_2(t_stack **s);
 void				sort_3(t_stack **s);
 void				sort_5(t_stack **a, t_stack **b, int size);
@@ -75,16 +73,17 @@ void				rrb(t_stack **s);
 void				rrr(t_stack **a, t_stack **b);
 
 // utils
-char				*ft_strjoin(char const *s1, char const *s2);
-char				*ft_strdup(const char *src);
-size_t				ft_strlen(const char *s);
 char				**ft_split(char const *s, char c);
-int					ft_strcmp(const char *s1, const char *s2);
 int					ft_isdigit(int c);
 int					ft_atoi(char *str);
 void				ft_lstadd_back(t_stack **lst, t_stack *new);
 t_stack				*ft_lstlast(t_stack *lst);
 t_stack				*ft_lstnew(int *content);
 int					ft_lstsize(t_stack *lst);
+void				ft_free(char **arr);
+void				check_digit(char *str);
+void				check_sign(char *str);
+void				swap_int(int *a, int *b);
+int					ft_strcmp(char *s1, char *s2);
 
 #endif

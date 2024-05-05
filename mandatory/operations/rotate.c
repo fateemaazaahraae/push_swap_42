@@ -6,7 +6,7 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 20:37:17 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/05/03 13:35:24 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/05/05 16:46:35 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	rotate(t_stack **s)
 
 void	ra(t_stack **s)
 {
-	if (!s)
+	if (!(*s))
 		return ;
 	rotate(s);
 	write(1, "ra\n", 3);
@@ -34,7 +34,7 @@ void	ra(t_stack **s)
 
 void	rb(t_stack **s)
 {
-	if (!s)
+	if (!(*s))
 		return ;
 	rotate(s);
 	write(1, "rb\n", 3);
@@ -42,7 +42,7 @@ void	rb(t_stack **s)
 
 void	rr(t_stack **a, t_stack **b)
 {
-	if (!a || !b)
+	if (!(*a) || !(*b))
 		return ;
 	rotate(a);
 	rotate(b);

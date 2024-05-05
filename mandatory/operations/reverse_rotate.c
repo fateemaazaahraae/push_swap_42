@@ -6,7 +6,7 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 20:37:39 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/04/29 14:19:40 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/05/05 16:46:02 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	reverse_rotate(t_stack **s)
 
 void	rra(t_stack **s)
 {
-	if (!s)
+	if (!(*s))
 		return ;
 	reverse_rotate(s);
 	write(1, "rra\n", 4);
@@ -46,7 +46,7 @@ void	rra(t_stack **s)
 
 void	rrb(t_stack **s)
 {
-	if (!s)
+	if (!(*s))
 		return ;
 	reverse_rotate(s);
 	write(1, "rrb\n", 4);
@@ -54,7 +54,7 @@ void	rrb(t_stack **s)
 
 void	rrr(t_stack **a, t_stack **b)
 {
-	if (!a || !b)
+	if (!(*a) || !(*b))
 		return ;
 	reverse_rotate(a);
 	reverse_rotate(b);
