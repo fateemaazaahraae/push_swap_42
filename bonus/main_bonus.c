@@ -6,7 +6,7 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 09:51:47 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/05/05 17:13:23 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/05/07 15:48:18 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	main(int ac, char **av)
 	t_stack	*b;
 
 	if (ac < 2)
-		ft_print_error();
+		exit(0);
 	a = NULL;
 	b = NULL;
 	ft_check_args(&ps, av, &a);
